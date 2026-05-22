@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brazza y Fogo – SLP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f0d080;
+      --dark: #1a1008;
+      --charcoal: #2c1f0e;
+      --red: #8b1a1a;
+      --cream: #f5efe0;
+      --text: #3a2a10;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      background: rgba(20, 10, 2, 0.95);
+      border-bottom: 1px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    nav .logo-wrap img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    nav .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+
+    nav .brand span {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav ul a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0a00 0%, #3b1a06 50%, #1a0a00 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+
+    /* Flame effect */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 180px;
+      background: linear-gradient(to top, rgba(139,26,26,0.35), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 28px;
+      filter: drop-shadow(0 0 30px rgba(201,168,76,0.5));
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(201,168,76,0.4);
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      color: var(--cream);
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin: 18px 0 36px;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 90px 60px; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 50px;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text { flex: 1; }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #c8b89a;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .about-img-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .about-img-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.3s;
+    }
+
+    .about-img-grid img:hover { filter: brightness(1); }
+
+    .about-img-grid img:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/7;
+    }
+
+    /* ── MENU ── */
+    #menu { background: var(--charcoal); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      filter: brightness(0.75);
+    }
+
+    .menu-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.9);
+    }
+
+    .menu-card-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 24px 22px;
+      background: linear-gradient(to top, rgba(20,10,2,0.95), transparent);
+    }
+
+    .menu-card-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .menu-card-info p {
+      font-size: 0.82rem;
+      color: #c8b89a;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── GALLERY ── */
+    #galeria { background: var(--dark); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 8px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      filter: brightness(0.8) saturate(1.1);
+      transition: filter 0.3s, transform 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      filter: brightness(1) saturate(1.3);
+      transform: scale(1.02);
+      z-index: 2;
+      position: relative;
+    }
+
+    .gallery-grid img:nth-child(1) { grid-column: span 2; height: 320px; }
+    .gallery-grid img:nth-child(5) { grid-column: span 2; height: 320px; }
+
+    /* ── CONTACT ── */
+    #contacto { background: var(--charcoal); }
+
+    .contact-wrap {
+      display: flex;
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+
+    .contact-info { flex: 1; }
+
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      font-size: 1.3rem;
+      color: var(--gold);
+      min-width: 28px;
+    }
+
+    .contact-item p {
+      color: #c8b89a;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .contact-item strong {
+      color: var(--cream);
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .map-placeholder {
+      flex: 1;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--gold);
+    }
+
+    .map-placeholder span { font-size: 2.5rem; }
+    .map-placeholder p { font-size: 0.85rem; letter-spacing: 2px; color: #c8b89a; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d0700;
+      border-top: 1px solid rgba(201,168,76,0.3);
+      text-align: center;
+      padding: 36px 60px;
+    }
+
+    footer .footer-logo {
+      width: 48px;
+      margin: 0 auto 14px;
+      opacity: 0.7;
+    }
+
+    footer p {
+      color: #7a6540;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    footer .gold-text { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      nav ul { gap: 18px; }
+      section { padding: 60px 24px; }
+      .about { flex-direction: column; gap: 40px; }
+      .contact-wrap { flex-direction: column; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid img:nth-child(1),
+      .gallery-grid img:nth-child(5) { grid-column: span 2; }
+    }
+
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 2.8rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo-wrap">
+      <img src="logo_brazza.svg" alt="Logo Brazza y Fogo">
+      <div class="brand">
+        Brazza y Fogo
+        <span>San Luis Potosí</span>
+      </div>
+    </div>
+    <ul>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <img src="logo_brazza.svg" alt="Brazza y Fogo" class="hero-logo">
+      <h1>BRAZZA <span>&</span> FOGO</h1>
+      <p class="tagline">Churrascaria · San Luis Potosí</p>
+      <a href="#menu" class="btn">Ver Menú</a>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" style="background: var(--dark);">
+    <h2 class="section-title">Nuestra Historia</h2>
+    <div class="section-line"></div>
+    <div class="about">
+      <div class="about-text">
+        <h2>El arte del fuego en cada corte</h2>
+        <p>
+          En Brazza y Fogo traemos la auténtica tradición de la churrascaria brasileña
+          al corazón de San Luis Potosí. Cada pieza de carne es seleccionada con precisión,
+          marinada con secretos de la casa y asada lentamente sobre brasas vivas.
+        </p>
+        <p>
+          Nuestro rodízio ofrece una experiencia sin límites: cortes premium que desfilan
+          por tu mesa uno tras otro, acompañados de ensaladas frescas, yuca frita, piña asada
+          y mucho más.
+        </p>
+        <p>
+          Más que un restaurante, Brazza y Fogo es una celebración del fuego, la carne y
+          la buena compañía.
+        </p>
+      </div>
+      <div class="about-img-grid">
+        <img src="Screenshot_53.png" alt="Carne a la brasa">
+        <img src="Screenshot_54.png" alt="Espetinho">
+        <img src="Screenshot_56.png" alt="Costillas">
+      </div>
+    </div>
+  </section>
+
+  <!-- MENÚ -->
+  <section id="menu">
+    <h2 class="section-title">Nuestros Cortes</h2>
+    <div class="section-line"></div>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <img src="Screenshot_60.png" alt="Costillas BBQ">
+        <div class="menu-card-info">
+          <h3>Costillas BBQ</h3>
+          <p>Marinadas 24 hrs · Ahumadas en leña</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_59.png" alt="Picanha">
+        <div class="menu-card-info">
+          <h3>Picanha</h3>
+          <p>Corte estrella de la churrascaria brasileña</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_58.png" alt="Costilla con Piña">
+        <div class="menu-card-info">
+          <h3>Costilla con Piña</h3>
+          <p>Tradición caramelizada al fuego</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_57.png" alt="Piña Brazza">
+        <div class="menu-card-info">
+          <h3>Piña Brazza</h3>
+          <p>Piña asada al estilo de la casa</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_55.png" alt="Costillas con Yuca">
+        <div class="menu-card-info">
+          <h3>Costillas con Yuca</h3>
+          <p>Acompañadas de yuca frita dorada</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_52.png" alt="Fraldinha">
+        <div class="menu-card-info">
+          <h3>Fraldinha</h3>
+          <p>Suave y jugosa · Sal gruesa</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_51.png" alt="Linguiça">
+        <div class="menu-card-info">
+          <h3>Linguiça</h3>
+          <p>Chorizo artesanal al carbón</p>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Screenshot_50.png" alt="Maminha">
+        <div class="menu-card-info">
+          <h3>Maminha</h3>
+          <p>Tierna falda · Punto perfecto</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <h2 class="section-title">Galería</h2>
+    <div class="section-line"></div>
+    <div class="gallery-grid">
+      <img src="Screenshot_60.png" alt="galeria 1">
+      <img src="Screenshot_54.png" alt="galeria 2">
+      <img src="Screenshot_56.png" alt="galeria 3">
+      <img src="Screenshot_49.png" alt="galeria 4">
+      <img src="Screenshot_53.png" alt="galeria 5">
+      <img src="Screenshot_51.png" alt="galeria 6">
+      <img src="Screenshot_58.png" alt="galeria 7">
+      <img src="Screenshot_52.png" alt="galeria 8">
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="section-title">Visítanos</h2>
+    <div class="section-line"></div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Información</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <p>
+            <strong>Dirección</strong>
+            San Luis Potosí, S.L.P., México
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <p>
+            <strong>Horario</strong>
+            Lunes – Jueves: 1:00 pm – 10:00 pm<br>
+            Viernes – Domingo: 1:00 pm – 11:00 pm
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <p>
+            <strong>Reservaciones</strong>
+            +52 444 000 0000
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
+          <p>
+            <strong>Instagram</strong>
+            @brazzayfogo_slp
+          </p>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <span>🗺️</span>
+        <p>San Luis Potosí, S.L.P.</p>
+        <p style="font-size:0.75rem; opacity:0.6;">Próximamente mapa interactivo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="logo_brazza.svg" alt="Logo" class="footer-logo">
+    <p><span class="gold-text">Brazza y Fogo</span> · San Luis Potosí · © 2024</p>
+    <p style="margin-top:8px;">La auténtica experiencia churrascaria</p>
+  </footer>
+
+</body>
+</html>

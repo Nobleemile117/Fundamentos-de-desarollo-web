@@ -1,0 +1,111 @@
+/* ============================================================
+   auth.css — Login y Registro
+   ============================================================ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, #1a0a00 0%, #2c1f0e 100%);
+}
+
+.auth-card {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-logo img {
+  width: 70px;
+  opacity: 0.85;
+}
+
+.auth-logo h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
+
+.auth-logo p {
+  color: #7a6540;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-form label {
+  display: block;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.auth-form input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--cream);
+  padding: 11px 14px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus { border-color: var(--gold); }
+
+.auth-form button {
+  padding: 13px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 6px;
+}
+
+.auth-form button:hover { background: var(--gold-light); }
+
+span.error {
+  color: #f09090;
+  font-size: 0.85rem;
+  text-align: center;
+  display: block;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 24px;
+  color: #7a6540;
+  font-size: 0.85rem;
+}
+
+.auth-switch a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.auth-switch a:hover { text-decoration: underline; }
